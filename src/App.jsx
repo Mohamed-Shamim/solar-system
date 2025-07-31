@@ -31,22 +31,22 @@ const App = () => {
       earth: textureLoader.load("/src/textures/2k_earth_daymap.jpg"),
       mars: textureLoader.load("/src/textures/2k_mars.jpg"),
       mercury: textureLoader.load("/src/textures/2k_mercury.jpg"),
-      moon: textureLoader.load("/src/textures/2k_moon.jpg"),
+      moon: textureLoader.load("/src/textures/2k_moon.webp"),
       neptune: textureLoader.load("/src/textures/2k_neptune.jpg"),
       uranus: textureLoader.load("/src/textures/2k_uranus.jpg"),
       venus: textureLoader.load("/src/textures/2k_venus_surface.jpg"),
-      saturn: textureLoader.load("/src/textures/8k_saturn.jpg"),
+      saturn: textureLoader.load("/src/textures/8k_saturn.webp"),
       jupiter: textureLoader.load("/src/textures/jupiter2_1k (1).jpg"),
       saturnRing: textureLoader.load("/src/textures/saturn_ring_texture.png"),
     };
 
     scene.background = cubeTextureLoader.load([
-      "px.png",
-      "nx.png",
+      "px.jpg",
+      "nx.jpg",
       "py.png",
       "ny.png",
-      "pz.png",
-      "nz.png",
+      "pz.jpg",
+      "nz.jpg",
     ]);
 
     // Materials
@@ -245,7 +245,7 @@ const App = () => {
         color: 0x888888,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.5,
       });
       const orbit = new THREE.Mesh(geo, mat);
       orbit.rotation.x = Math.PI / 2;
@@ -336,7 +336,7 @@ const App = () => {
     controls.minDistance = 10;
 
     const animate = () => {
-      sun.rotation.y += 0.001 * PARAMS.speedMultiplier;
+      sun.rotation.y += 0.004 * PARAMS.speedMultiplier;
 
       planetMeshes.forEach((planetMesh, i) => {
         const data = planets[i];
